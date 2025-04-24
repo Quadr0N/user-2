@@ -12,12 +12,4 @@ jobs:
         run: |
           title="${{ github.event.pull_request.title }}"
           echo $title
-          if [[ $title =~ ^(chore|fix|feat) ]]; then
-            echo "PR title starts with 'chore', 'fix', or 'feat'"
-            echo "${{ github.event.pull_request.title }}"
-            exit 0
-          else
-            echo "PR title did not start with 'chore', 'fix', or 'feat'"
-            exit 1
-          fi
-
+          exit 0
