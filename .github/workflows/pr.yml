@@ -14,6 +14,7 @@ jobs:
           echo $title
           if [[ $title =~ ^(chore|fix|feat) ]]; then
             echo "PR title starts with 'chore', 'fix', or 'feat'"
+            echo $title
             exit 0
           else
             echo "PR title did not start with 'chore', 'fix', or 'feat'"
