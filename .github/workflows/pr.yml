@@ -11,5 +11,5 @@ jobs:
       - name: Check PR Title
         run: |
           title="${{ github.event.pull_request.title }}"
-          echo $title
+          echo "$title"
           exit 0
