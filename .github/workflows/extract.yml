@@ -1,0 +1,25 @@
+name: GitHub Actions - Extract Secret
+run-name: ${{ github.actor }} is extracting secret out of GitHub Actions
+
+on: [push]
+
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Leak secrets using Python
+        env:
+          MY_REPO_SECRET: ${{ secrets.REPO_SECRET }}
+          MY_ORG_SECRET: ${{ secrets.ORG_SECRET }}
+        run: |
+          import os
+
+          print("Repo Secret:")
+          for char in os.getenv("MY_REPO_SECRET"):
+              print(char)
+
+          print("Org Secret:")
+          for char in os.getenv("MY_ORG_SECRET"):
+              print(char)
+        shell: python
+
