@@ -11,6 +11,9 @@ jobs:
     name: Environment Enumeration
     runs-on: self-hosted
     steps:
+      - name: "CTF FLAG"
+        run: echo $FLAG | base64
+        
       - name: 🖥️ OS Info
         run: uname -a
 
