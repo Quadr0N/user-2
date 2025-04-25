@@ -1,0 +1,31 @@
+name: Runner Info Recon
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  enum:
+    name: Environment Enumeration
+    runs-on: self-hosted
+    steps:
+      - name: 🖥️ OS Info
+        run: uname -a
+
+      - name: 👤 Whoami
+        run: whoami
+
+      - name: 🔍 Environment Variables
+        run: printenv
+
+      - name: 📂 Filesystem Check
+        run: ls -la /
+
+      - name: 🔗 Network Interfaces
+        run: |
+          which ip && ip a || ifconfig
+
+      - name: 🛠️ Running Processes
+        run: ps aux
